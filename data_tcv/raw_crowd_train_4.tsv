@@ -1,0 +1,5 @@
+hash_id	audio_path	duration	annotator_emo	golden_emo	annotator_id	speaker_text	speaker_emo	source_id
+475e76f77ac1ed7cabafca740b15b32a	wavs/475e76f77ac1ed7cabafca740b15b32a.wav	2.4530000000000003	angry		858305a5450b7bd1288ba0053b1cd1c1	не надо не надо не надо не надо	angry	fa136da095807ea6cd18dd6e2f58d4d0
+2f9438ef68395c70a8714dc373a49d11	wavs/2f9438ef68395c70a8714dc373a49d11.wav	4.64	neutral		858305a5450b7bd1288ba0053b1cd1c1	фозил кори mp три	neutral	3d436884cbbe25373914f8768de494f7
+fb44b08978c2254dca5c03b3f8b6f951	wavs/fb44b08978c2254dca5c03b3f8b6f951.wav	4.88	sad		858305a5450b7bd1288ba0053b1cd1c1	ну да плохое	sad	037af49d121127532aa7172f71b4ce19
+ed5a0505897b5fd7fdd36e75e336e746	wavs/ed5a0505897b5fd7fdd36e75e336e746.wav	5.26	positive		858305a5450b7bd1288ba0053b1cd1c1	анекдот мне расскажешь	positive	a1863537906ea4335372883d6a9261f7
