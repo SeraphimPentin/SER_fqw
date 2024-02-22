@@ -1,9 +1,9 @@
 
-# class Name:
-DATA = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_train\\raw_crowd_train.tsv"
-AUDIO = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_train\\wavs\\"
+DATA_TRAIN = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_train\\raw_crowd_train.tsv"
+AUDIO_TRAIN = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_train\\wavs\\"
 
-    # def __init__(self):
-    #     self.DATA =
-    #     self.AUDIO =
+DATA_TEST = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_test\\raw_crowd_test.tsv"
+AUDIO_TEST = "C:\\Users\\s5pen\\YandexDisk\\ВКР\\crowd_test\\wavs\\"
 
+
+#%%
