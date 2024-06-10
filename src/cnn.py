@@ -47,7 +47,6 @@ def create_tsv_file_for_N_records(value: int):
 create_tsv_file_for_N_records(5000)
 
 #% Извлечение признаков
-# Извлечение признаков #EXPEREREMETN
 
 def extract_zcr(data):
     zcr = np.mean(librosa.feature.zero_crossing_rate(y=data).T, axis=0)
@@ -90,51 +89,24 @@ def get_features(path):
     return result
 
 #%%
-# data_10_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_10.tsv",
-#                               delimiter='\t')
-# data_200_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_200.tsv",
-#                                delimiter='\t')
-# first_40_records = data_train.head(40);
-# data_400_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_400.tsv",
-#                                 delimiter='\t')
-# data_1000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_1000.tsv",
-#                                 delimiter='\t')
-# data_2000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_2000.tsv",
-#                                 delimiter='\t')
-# data_5000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_5000.tsv",
-#                                 delimiter='\t')
-# data_10_000_records = pd.read_csv("C:\\Users\\s5pen\\DataS`pellProjects\\SER\\data_tcv\\raw_crowd_train_10000.tsv",
-#                                   delimiter='\t')
-# data_15_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_15000.tsv",
-#                                   delimiter='\t')
-data_25_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_25000.tsv",
-                                  delimiter='\t')
-
+# data_10_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_10.tsv",delimiter='\t')
+# data_100_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_100.tsv", delimiter='\t')
+# data_200_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_200.tsv delimiter='\t')
+# data_400_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_400.tsv", delimiter='\t')
+# data_1000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_1000.tsv", delimiter='\t')
+# data_2000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_2000.tsv", delimiter='\t')
+# data_5000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_5000.tsv", delimiter='\t')
+# data_10_000_records = pd.read_csv("C:\\Users\\s5pen\\DataS`pellProjects\\SER\\data_tcv\\raw_crowd_train_10000.tsv", delimiter='\t')
+# data_15_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_15000.tsv",                             delimiter='\t')
+data_25_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_25000.tsv", delimiter='\t')
+# data_50_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_50000.tsv", delimiter='\t')
+# data_100_000_records = pd.read_csv("C:\\Users\\s5pen\\DataSpellProjects\\SER\\data_tcv\\raw_crowd_train_100000.tsv", delimiter='\t')
 #%%
 audio_path = AUDIO_TRAIN + data_25_000_records.hash_id + ".wav"
 emotions = data_25_000_records.annotator_emo
 
 X, Y = extract_features(audio_path, emotions)
 
-#%% import PCA
-# from sklearn.decomposition import PCA
-# pca = PCA(n_components=0.90)  # Выбор числа компонент, сохраняющего 90% дисперсии
-# X_pca = pca.fit_transform(X)
-#
-# # Проверим новую размерность X после применения PCA
-# print("Shape of X after PCA:", X_pca.shape)
-#%% Грфик накопленной дисперсии
-#  -
-# cumulative_variance = np.cumsum(pca.explained_variance_ratio_)
-#
-# # Построение графика
-# plt.figure(figsize=(10, 6))
-# plt.plot(cumulative_variance, marker='o', linestyle='-')
-# plt.title('Накопленная дисперсия, объясненная главными компонентами')
-# plt.xlabel('Количество главных компонент')
-# plt.ylabel('Накопленная дисперсия, объясненная')
-# plt.grid(True)
-# plt.show()
 #%%
 len(X), len(Y), audio_path.shape
 
@@ -165,14 +137,14 @@ x_test = scaler.transform(x_test)
 x_train.shape, y_train.shape, x_test.shape, y_test.shape, x_train
 
 #%% PCA
-# from sklearn.decomposition import PCA
-#
-# # Применение PCA
-# pca = PCA(n_components=0.9)  # Выбор числа компонент, сохраняющего 90% дисперсии
-# x_train_pca = pca.fit_transform(x_train)
-# x_test_pca = pca.transform(x_test)
-#
-# x_train_pca.shape, x_train_pca
+from sklearn.decomposition import PCA
+
+# Применение PCA
+pca = PCA(n_components=0.9)  # Выбор числа компонент, сохраняющего 90% дисперсии
+x_train_pca = pca.fit_transform(x_train)
+x_test_pca = pca.transform(x_test)
+
+x_train_pca.shape, x_train_pca
 #%%
 model=Sequential()
 model.add(Conv1D(256, kernel_size=5, strides=1, padding='same', activation='relu', input_shape=(x_train.shape[1], 1)))

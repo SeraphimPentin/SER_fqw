@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from IPython.display import Audio
 import sklearn
 from scipy.signal import lfilter
+from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -378,3 +379,30 @@ ax[1].set_title('Training & Testing Accuracy')
 ax[1].legend()
 ax[1].set_xlabel("Epochs")
 plt.show()
+
+# %%
+# predicting on test data.
+pred_test = model.predict(x_test)
+y_pred = encoder.inverse_transform(pred_test)
+
+y_test = encoder.inverse_transform(y_test)
+cm = confusion_matrix(y_test, y_pred)
+plt.figure(figsize=(12, 10))
+cm = pd.DataFrame(cm, index=[i for i in encoder.categories_], columns=[i for i in encoder.categories_])
+sns.heatmap(cm, linecolor='white', cmap='Blues', linewidth=1, annot=True, fmt='')
+plt.title('Confusion Matrix', size=20)
+plt.xlabel('Predicted Labels', size=14)
+plt.ylabel('Actual Labels', size=14)
+plt.show()
+df = pd.DataFrame(columns=['Predicted Labels', 'Actual Labels'])
+df['Predicted Labels'] = y_pred.flatten()
+df['Actual Labels'] = y_test.flatten()
+
+#%%
+df = pd.DataFrame(columns=['Predicted Labels', 'Actual Labels'])
+df['Predicted Labels'] = y_pred.flatten()
+df['Actual Labels'] = y_test.flatten()
+
+df.head(10)
+print(classification_report(y_test, y_pred))
+#%%
