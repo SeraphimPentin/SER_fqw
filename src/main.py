@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from IPython.display import Audio
-import sklearn
+from IPython.core.display_functions import display
 from scipy.signal import lfilter
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.preprocessing import OneHotEncoder
@@ -12,9 +12,8 @@ from sklearn.preprocessing import StandardScaler
 import librosa
 import librosa.display
 from sklearn.decomposition import PCA
-import keras
-from keras.models import Sequential
-from keras.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense
+from keras.src.models import Sequential
+from keras.src.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense
 from keras.src.callbacks import ReduceLROnPlateau
 
 # %%
@@ -98,10 +97,6 @@ def create_spectrogram(data, sr, emotion):
     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
     plt.colorbar()
     plt.show()
-
-
-def create_audio_display(data):
-    display(Audio(data))
 
 
 def create_mfcc_plot(data, sr, emotion):

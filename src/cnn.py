@@ -8,8 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report
 import librosa
 import librosa.display
-from keras.models import Sequential
-from keras.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense
+from keras.src.models import Sequential
+from keras.src.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense
 from keras.src.callbacks import ReduceLROnPlateau
 
 #%%
